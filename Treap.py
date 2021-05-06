@@ -138,6 +138,17 @@ def printTreap(node, space):
   # print the left child
   printTreap(node.left, space)
 
+def rangeSearchTreap(node, k1, k2):
+  if node == None:
+    return
+
+  rangeSearchTreap(node.left, k1, k2)
+  
+  if k1 < node.data and node.data < k2:
+    print(" " + str(node.data))
+
+  rangeSearchTreap(node.right, k1, k2)
+
 
 if __name__ == "__main__":
   keys = [5, 2, 1, 4, 9, 8, 10]
