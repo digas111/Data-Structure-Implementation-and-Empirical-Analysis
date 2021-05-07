@@ -25,22 +25,27 @@ Operations:
       a rotation at z, decreasing the depth of z (and increasing 
       the depth of the parent), while keeping the BST property
   
-  Split/Join:
+  Split/Join:      
     - We want to split a treap T into two treaps T< and T> along some pivot π 
       - T< contains all nodes with keys smaller than π T> contains all nodes with keys bigger than π
 """
 
-from random import randrange  
+from random import random
 
 class TreapNode(object):
   def __init__(self, data):
     self.left = None 
     self.right = None
     self.data = data
-    self.priority = randrange(200)
+    self.priority = random()
 
   def printNode(self):
     print("Data: " + str(self.data) + " Priority: " + str(self.priority))
+
+def listInsertTreap(node, dataList):
+	for data in dataList:
+		node = insertTreap(node,data)
+	return node
 
 
 def insertTreap(node, data):
@@ -49,12 +54,12 @@ def insertTreap(node, data):
 
   elif data < node.data:
     node.left = insertTreap(node.left, data)
-    if node.left != None and node.left.priority > node.priority:
+    if node.left != None and node.left.priority >= node.priority:
       node = rotateRight(node)
 
   else:
     node.right = insertTreap(node.right,data)
-    if node.right != None and node.right.priority > node.priority:
+    if node.right != None and node.right.priority >= node.priority:
       node = rotateLeft(node)
 
   return(node)
@@ -139,6 +144,7 @@ def printTreap(node, space):
   printTreap(node.left, space)
 
 def rangeSearchTreap(node, k1, k2):
+
   if node == None:
     return
 
