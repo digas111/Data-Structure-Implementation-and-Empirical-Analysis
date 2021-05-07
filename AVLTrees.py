@@ -7,6 +7,11 @@ class AvlNode:
 		self.right = None
 		self.height = 1
 
+def listInsert(root, keys):
+	for key in keys:
+		root = insert(root,key)
+	return root
+
 def insert(root, key):
 
 	if not root:
@@ -22,9 +27,9 @@ def insert(root, key):
 
 	if balance > 1 and key < root.left.key:
 		return rightRotation(root)
-	if balance < -1 and key > root.right.key:
+	if balance < -1 and key >= root.right.key:
 		return leftRotation(root)
-	if balance > 1 and key > root.left.key:
+	if balance > 1 and key >= root.left.key:
 		root.left = leftRotation(root.left)
 		return rightRotation(root)
 	if balance < -1 and key < root.right.key:
@@ -147,6 +152,18 @@ def PrintTree(root):
 	print( root.key, end =" ")
 	PrintTree(root.right)
 
+def rangeSearchTree(root, k1, k2):
+
+	if not root:
+		return
+
+	rangeSearchTree(root.left, k1, k2)
+
+	if k1 <= root.key and root.key <= k2:
+		print(" " + str(root.key))
+
+	rangeSearchTree(root.right, k1, k2)
+
 #    4
 #   / \
 #  /   \
@@ -157,12 +174,8 @@ def PrintTree(root):
 def main():
 	root = None
 
-	root = insert(root, 12)
-	root = insert(root, 6)
-	root = insert(root, 14)
-	root = insert(root, 3)
-	root = insert(root, 2)
-	root = insert(root, 1)
+	keys = [5, 2, 1, 4, 9, 8, 10]
+	root = listInsert(root,keys)
 
 	print(treeArray(root))
 
@@ -181,11 +194,14 @@ def main():
 	root = remove(root, 1)
 	print(treeArray(root))
 
-	
+	for key in keys:
+		root = insert(root, key)
 
 	# PrintTree(root)
 	# print("")
 	print('balance: ' + str(getBalance(root)))
+
+	rangeSearchTree(root, 3, 10)
 
 
 if __name__ == "__main__":

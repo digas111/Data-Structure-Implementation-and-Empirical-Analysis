@@ -28,16 +28,14 @@ class TestTrees(unittest.TestCase, CustomAssertions):
 
     def setUp(self):
 
-
         print('setUp')
         
+        keys = [5, 2, 1, 4, 9, 8, 10]
+
         self.root1 = None
-        self.root1 = AVLTrees.insert(self.root1, 12)
-        self.root1 = AVLTrees.insert(self.root1, 6)
-        self.root1 = AVLTrees.insert(self.root1, 14)
-        self.root1 = AVLTrees.insert(self.root1, 3)
-        self.root1 = AVLTrees.insert(self.root1, 2)
-        self.root1 = AVLTrees.insert(self.root1, 1)
+        
+        for key in keys:
+            self.root1 = AVLTrees.insert(self.root1, key)
 
     def test_insert(self):
     
@@ -53,11 +51,11 @@ class TestTrees(unittest.TestCase, CustomAssertions):
 
         # Test existing elements
         self.assertTrue(AVLTrees.search(self.root1, 2))
-        self.assertTrue(AVLTrees.search(self.root1, 14))
+        self.assertTrue(AVLTrees.search(self.root1, 10))
 
         # Test non existing elements
         self.assertFalse(AVLTrees.search(self.root1, 24))
-        self.assertFalse(AVLTrees.search(self.root1, 5))
+        self.assertFalse(AVLTrees.search(self.root1, 3))
         
 
 
