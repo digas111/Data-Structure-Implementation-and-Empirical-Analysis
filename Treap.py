@@ -4,7 +4,7 @@ Heap property
 -> The node v with highest priority must be the node
 Tree property
 -> any node u with key(u) < key (v) must be in the left subtree
--> any node w with key(w) > key (v) must be in the left subtree
+-> any node w with key(w) >= key (v) must be in the right subtree
 
 a treap is exactly the binary search tree that results 
 of inserting the nodes in order of increasing priority
@@ -144,7 +144,7 @@ def rangeSearchTreap(node, k1, k2):
 
   rangeSearchTreap(node.left, k1, k2)
   
-  if k1 < node.data and node.data < k2:
+  if k1 <= node.data and node.data <= k2:
     print(" " + str(node.data))
 
   rangeSearchTreap(node.right, k1, k2)
