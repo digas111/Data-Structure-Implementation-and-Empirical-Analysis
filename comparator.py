@@ -22,6 +22,12 @@ def compareOperations(tree):
     stop = time.time()
     print("Treap insert time: " + str(stop-start))
 
+
+        # Depht #
+
+    print("AVL depth: " + str(AVLTrees.getDepht(avlRoot)))
+    print("Treap depth: " + str(Treap.getDepht(treapRoot)))
+
         # Remove #
 
     ncases = int(0.2*len(tree))

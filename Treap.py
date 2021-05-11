@@ -155,6 +155,13 @@ def rangeSearchTreap(node, k1, k2):
 
   rangeSearchTreap(node.right, k1, k2)
 
+def getDepht(node):
+
+  if node == None:
+    return 0
+  
+  return 1 + max(getDepht(node.left),getDepht(node.right))
+
 
 if __name__ == "__main__":
   keys = [5, 2, 1, 4, 9, 8, 10]

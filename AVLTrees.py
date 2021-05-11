@@ -164,6 +164,13 @@ def rangeSearchTree(root, k1, k2):
 
 	rangeSearchTree(root.right, k1, k2)
 
+def getDepht(root):
+
+	if not root:
+		return 0
+
+	return 1 + max(getDepht(root.left),getDepht(root.right))
+
 #    4
 #   / \
 #  /   \
