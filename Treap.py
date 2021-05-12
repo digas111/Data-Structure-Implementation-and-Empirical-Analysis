@@ -29,7 +29,10 @@ Notas:
       - As long as the parent ofzhas a smaller priority, you perform 
         a rotation at z, decreasing the depth of z (and increasing 
         the depth of the parent), while keeping the BST property
-    
+
+Inspired by:
+  https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+  https://www.dcc.fc.up.pt/~pribeiro/aulas/taa2021/balancedsearchtrees.pdf 
 
 """
 

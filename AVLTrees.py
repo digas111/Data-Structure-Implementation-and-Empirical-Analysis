@@ -1,4 +1,13 @@
-#AVL Tree implementation
+"""
+
+Código desenvolvido por: Diogo Ribeiro
+Num. Mec.: 201504115
+
+Inspired by:
+  https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+  https://www.dcc.fc.up.pt/~pribeiro/aulas/taa2021/balancedsearchtrees.pdf 
+
+"""
 
 class AvlNode:
 	def __init__(self, key):
@@ -171,13 +180,6 @@ def getDepht(root):
 
 	return 1 + max(getDepht(root.left),getDepht(root.right))
 
-#    4
-#   / \
-#  /   \
-#  5   4
-# / \ / \
-# 5 8 4 5
-
 def main():
 	root = None
 
@@ -204,8 +206,6 @@ def main():
 	for key in keys:
 		root = insert(root, key)
 
-	# PrintTree(root)
-	# print("")
 	print('balance: ' + str(getBalance(root)))
 
 	rangeSearchTree(root, 3, 10)
