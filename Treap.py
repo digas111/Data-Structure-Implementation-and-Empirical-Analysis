@@ -1,33 +1,36 @@
 """
-Treap = Tree + Heap
-Heap property
--> The node v with highest priority must be the node
-Tree property
--> any node u with key(u) < key (v) must be in the left subtree
--> any node w with key(w) >= key (v) must be in the right subtree
 
-a treap is exactly the binary search tree that results 
-of inserting the nodes in order of increasing priority
-into an initially empty tree
+Código desenvolvido por: Manuel Martins
+Num. Mec.: 201504230
 
-Operations:
-  Search:
-    - Successful search has time proportional to the depth of the 
-      node 
-    - Unsuccessful search has time proportional to the depth of
-      its predecessor or ancestor
+Notas: 
+  Treap = Tree + Heap
+  Heap property
+    -> The node v with highest priority must be the node
+  Tree property
+    -> any node u with key(u) < key (v) must be in the left subtree
+    -> any node w with key(w) >= key (v) must be in the right subtree
 
-  Insertion: 
-    - You do the insertion using the standard BST algorithm
-    - At this point you have a BST, but priorities may no 
-      longer form a heap
-    - As long as the parent ofzhas a smaller priority, you perform 
-      a rotation at z, decreasing the depth of z (and increasing 
-      the depth of the parent), while keeping the BST property
-  
-  Split/Join:      
-    - We want to split a treap T into two treaps T< and T> along some pivot π 
-      - T< contains all nodes with keys smaller than π T> contains all nodes with keys bigger than π
+  A treap is exactly the binary search tree that results 
+  of inserting the nodes in order of increasing priority
+  into an initially empty tree
+
+  Operations:
+    Search:
+      - Successful search has time proportional to the depth of the 
+        node 
+      - Unsuccessful search has time proportional to the depth of
+        its predecessor or ancestor
+
+    Insertion: 
+      - You do the insertion using the standard BST algorithm
+      - At this point you have a BST, but priorities may no 
+        longer form a heap
+      - As long as the parent ofzhas a smaller priority, you perform 
+        a rotation at z, decreasing the depth of z (and increasing 
+        the depth of the parent), while keeping the BST property
+    
+
 """
 
 from random import random
